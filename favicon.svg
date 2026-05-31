@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#1A1A2E" stroke="#D4A84B" stroke-width="2"/>
+  <path d="M50 2 A48 48 0 0 1 98 50 A24 24 0 0 1 50 50 A24 24 0 0 0 2 50 A48 48 0 0 1 50 2Z" fill="#D4A84B"/>
+  <circle cx="50" cy="26" r="8" fill="#1A1A2E"/>
+  <circle cx="50" cy="74" r="8" fill="#D4A84B"/>
+  <path d="M50 98 A48 48 0 0 1 2 50 A24 24 0 0 1 50 50 A24 24 0 0 0 98 50 A48 48 0 0 1 50 98Z" fill="#1A1A2E"/>
+  <text x="50" y="88" text-anchor="middle" font-size="10" fill="#D4A84B" font-family="serif">易经</text>
+</svg>
