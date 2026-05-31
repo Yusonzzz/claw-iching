@@ -1,20 +1,21 @@
 <template>
   <div class="page">
+    <!-- 顶栏：主题切换 -->
+    <div class="top-bar">
+      <button class="theme-home-btn" @click="handleThemeToggle" :aria-label="theme === 'dark' ? '切换白天模式' : '切换深夜模式'">
+        <span class="theme-home-icon" :class="{ swapping: isSwapping }">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
+      </button>
+    </div>
+
     <!-- 当前使用者 -->
     <div v-if="activeProfile" class="user-bar">
       <span class="user-avatar">👤</span>
       <span class="user-name">{{ activeProfile.name }}</span>
       <span class="user-bazi">{{ activeProfile.birthYear }}年·日主</span>
-      <button class="theme-home-btn" @click="handleThemeToggle" :aria-label="theme === 'dark' ? '切换白天模式' : '切换深夜模式'">
-        <span class="theme-home-icon" :class="{ swapping: isSwapping }">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
-      </button>
       <router-link to="/profile" class="user-switch">切换 ›</router-link>
     </div>
     <div v-else class="user-bar user-bar-empty">
       <span>📌 未设置命主信息</span>
-      <button class="theme-home-btn" @click="handleThemeToggle" :aria-label="theme === 'dark' ? '切换白天模式' : '切换深夜模式'">
-        <span class="theme-home-icon" :class="{ swapping: isSwapping }">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
-      </button>
       <router-link to="/profile" class="user-setup-link">去设置 ›</router-link>
     </div>
 
@@ -136,6 +137,49 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* 顶栏 */
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 0 6px;
+}
+
+/* 主题切换 —— 独立于命主信息栏 */
+.theme-home-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  border: .5px solid var(--separator-strong);
+  background: var(--bg-card);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+  transition: all .35s var(--spring);
+}
+.theme-home-btn:active {
+  transform: scale(.88);
+}
+.theme-home-icon {
+  font-size: 17px;
+  line-height: 1;
+  display: block;
+  transition: transform .35s var(--spring);
+}
+.theme-home-icon.swapping {
+  animation: themeSwap .4s var(--spring);
+}
+@keyframes themeSwap {
+  0%   { transform: scale(1) rotate(0deg); }
+  50%  { transform: scale(.5) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
+
 .user-bar {
   display: flex; align-items: center; gap: 10px;
   padding: 10px 14px;
@@ -154,41 +198,4 @@ onMounted(() => {
 .user-bazi { font-size: 12px; color: var(--label-tertiary); }
 .user-switch { margin-left: auto; font-size: 13px; color: var(--gold); text-decoration: none; font-weight: 500; }
 .user-setup-link { margin-left: auto; font-size: 13px; color: var(--gold); text-decoration: none; font-weight: 500; }
-
-/* 主题切换 —— 融入用户信息栏 */
-.theme-home-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
-  border: .5px solid var(--separator-strong);
-  background: var(--bg-tertiary);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin-left: auto;
-  margin-right: 4px;
-  flex-shrink: 0;
-  transition: all .35s var(--spring);
-}
-.theme-home-btn:active {
-  transform: scale(.88);
-}
-.theme-home-icon {
-  font-size: 15px;
-  line-height: 1;
-  display: block;
-  transition: transform .35s var(--spring);
-}
-.theme-home-icon.swapping {
-  animation: themeSwap .4s var(--spring);
-}
-@keyframes themeSwap {
-  0%   { transform: scale(1) rotate(0deg); }
-  50%  { transform: scale(.5) rotate(180deg); }
-  100% { transform: scale(1) rotate(360deg); }
-}
 </style>
