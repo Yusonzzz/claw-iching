@@ -377,13 +377,13 @@ function resetForm() {
 .section-title { font-size: 13px; font-weight: 600; color: var(--label-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; padding-left: 4px; }
 
 .profile-card {
-  background: var(--bg3);
+  background: var(--bg-tertiary);
   border-radius: var(--radius-md);
   padding: 14px 16px;
   margin-bottom: 8px;
   display: flex;
   align-items: center;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid var(--separator);
   cursor: pointer;
   transition: box-shadow 0.2s;
   -webkit-tap-highlight-color: transparent;
@@ -427,7 +427,7 @@ function resetForm() {
 .ios-input {
   width: 100%;
   padding: 10px 14px;
-  background: var(--bg3);
+  background: var(--bg-tertiary);
   border: none;
   border-radius: var(--radius-sm);
   color: var(--label-primary);
@@ -456,7 +456,7 @@ function resetForm() {
 /* 公历/农历切换 */
 .cal-toggle {
   display: flex;
-  background: var(--bg3);
+  background: var(--bg-tertiary);
   border-radius: var(--radius-sm);
   padding: 3px;
   border: none;
@@ -485,7 +485,7 @@ function resetForm() {
   padding: 7px 20px;
   border-radius: var(--radius-sm);
   border: none;
-  background: var(--bg3);
+  background: var(--bg-tertiary);
   color: var(--label-secondary);
   font-size: 14px;
   cursor: pointer;
@@ -506,7 +506,7 @@ function resetForm() {
 .city-dropdown {
   position: absolute;
   top: 100%; left: 0; right: 0;
-  background: var(--bg4);
+  background: var(--bg-elevated);
   border: none;
   border-radius: var(--radius-sm);
   margin-top: 4px;
@@ -565,5 +565,5 @@ function resetForm() {
   align-items: flex-start;
 }
 .tip-icon { font-size: 16px; }
-.tip-text { font-size: 13px; color: #64B5F6; line-height: 1.5; }
+.tip-text { font-size: 13px; color: var(--system-blue); line-height: 1.5; }
 </style>

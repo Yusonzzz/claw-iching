@@ -531,8 +531,8 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
   gap: 4px;
   padding: 12px 8px;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--separator);
+  background: var(--bg-quaternary);
   color: var(--label-secondary);
   cursor: pointer;
   transition: all 0.2s;
@@ -560,7 +560,7 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
 }
 .method-desc {
   font-size: 10px;
-  color: rgba(142,142,147,0.6);
+  color: var(--label-quaternary);
   margin-top: 1px;
 }
 
@@ -580,7 +580,7 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
 .dir-btn {
   display: flex; flex-direction: column; align-items: center; gap: 4px;
   padding: 12px 4px; border-radius: var(--radius-md);
-  border: none; background: rgba(0,0,0,.03);
+  border: none; background: var(--bg-tertiary);
   color: var(--label-secondary); cursor: pointer;
   transition: all .25s var(--spring);
   font-family: -apple-system, sans-serif;
@@ -603,8 +603,8 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
   gap: 8px;
   padding: 10px 12px;
   border-radius: var(--radius-sm);
-  border: 0.5px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.03);
+  border: 0.5px solid var(--separator);
+  background: var(--bg-quaternary);
   color: var(--label-primary);
   cursor: pointer;
   font-size: 13px;
@@ -624,7 +624,7 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
 .obj-back-btn {
   padding: 4px 10px;
   border-radius: var(--radius-xs);
-  border: 0.5px solid rgba(255,255,255,0.08);
+  border: 0.5px solid var(--separator);
   background: transparent;
   color: var(--gold);
   font-size: 12px;
@@ -640,8 +640,8 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
 .obj-btn {
   padding: 8px 6px;
   border-radius: var(--radius-sm);
-  border: 0.5px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.03);
+  border: 0.5px solid var(--separator);
+  background: var(--bg-quaternary);
   color: var(--label-primary);
   font-size: 12px;
   cursor: pointer;
@@ -710,7 +710,7 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255,248,240,.88);
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -773,7 +773,7 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
   display: inline-block;
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid var(--separator);
   border-top-color: var(--label-tertiary);
   border-radius: 50%;
   animation: spinnerRotate 0.6s linear infinite;
@@ -793,7 +793,7 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
 
 .toast-modal {
   position: fixed; inset: 0;
-  background: rgba(255,248,240,.88);
+  background: var(--bg);
   display: flex; align-items: center; justify-content: center;
   z-index: 999;
   backdrop-filter: blur(4px);
@@ -801,14 +801,14 @@ ${interpretation.value ? '\n' + interpretation.value : ''}`
   padding: 40px;
 }
 .toast-dialog {
-  background: rgba(255,255,255,.94);
+  background: var(--bg-card);
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
   border-radius: var(--radius-lg);
   padding: 28px 24px 20px;
   text-align: center;
   max-width: 280px; width: 100%;
-  border: .5px solid rgba(255,255,255,.08);
+  border: .5px solid var(--separator);
   transition: all .3s cubic-bezier(.16,1,.3,1);
 }
 .toast-icon { font-size: 44px; margin-bottom: 12px; }

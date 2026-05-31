@@ -211,7 +211,7 @@ goToToday()
   cursor: pointer;
   transition: background .15s;
 }
-.nav-arrow:active { background: var(--bg4); }
+.nav-arrow:active { background: var(--bg-elevated); }
 
 .fortune-item {
   padding: 10px 0;

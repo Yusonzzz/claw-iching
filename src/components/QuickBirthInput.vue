@@ -273,7 +273,7 @@ defineExpose({ getBirthData, mode })
 <style scoped>
 .mode-toggle {
   display: flex;
-  background: var(--bg3);
+  background: var(--bg-tertiary);
   border-radius: var(--radius-sm);
   padding: 3px;
   margin-bottom: 12px;
@@ -315,7 +315,7 @@ defineExpose({ getBirthData, mode })
 
 .cal-toggle {
   display: flex;
-  background: var(--bg3);
+  background: var(--bg-tertiary);
   border-radius: var(--radius-sm);
   padding: 2px;
   border: 1px solid var(--separator);
@@ -335,7 +335,7 @@ defineExpose({ getBirthData, mode })
 
 .gender-toggle {
   display: flex;
-  background: var(--bg3);
+  background: var(--bg-tertiary);
   border-radius: var(--radius-sm);
   padding: 2px;
   border: 1px solid var(--separator);
@@ -357,7 +357,7 @@ defineExpose({ getBirthData, mode })
   padding: 6px 16px;
   border-radius: var(--radius-xs);
   border: 1px solid var(--separator);
-  background: var(--bg3);
+  background: var(--bg-tertiary);
   color: var(--label-secondary);
   font-size: 13px;
   cursor: pointer;
@@ -372,7 +372,7 @@ defineExpose({ getBirthData, mode })
 .city-dropdown {
   position: absolute;
   top: 100%; left: 0; right: 0;
-  background: var(--bg4);
+  background: var(--bg-elevated);
   border: 1px solid var(--separator);
   border-radius: var(--radius-sm);
   margin-top: 4px;
