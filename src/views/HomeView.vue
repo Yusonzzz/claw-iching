@@ -1,12 +1,5 @@
 <template>
   <div class="page">
-    <!-- 顶栏：主题切换 -->
-    <div class="top-bar">
-      <button class="theme-home-btn" @click="handleThemeToggle" :aria-label="theme === 'dark' ? '切换白天模式' : '切换深夜模式'">
-        <span class="theme-home-icon" :class="{ swapping: isSwapping }">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
-      </button>
-    </div>
-
     <!-- 当前使用者 -->
     <div v-if="activeProfile" class="user-bar">
       <span class="user-avatar">👤</span>
@@ -17,6 +10,13 @@
     <div v-else class="user-bar user-bar-empty">
       <span>📌 未设置命主信息</span>
       <router-link to="/profile" class="user-setup-link">去设置 ›</router-link>
+    </div>
+
+    <!-- 主题切换 -->
+    <div class="top-bar">
+      <button class="theme-home-btn" @click="handleThemeToggle" :aria-label="theme === 'dark' ? '切换白天模式' : '切换深夜模式'">
+        <span class="theme-home-icon" :class="{ swapping: isSwapping }">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
+      </button>
     </div>
 
     <!-- 页头 -->
