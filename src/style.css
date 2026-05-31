@@ -107,6 +107,7 @@ body {
 
 /* —— 页面 —— */
 .page {
+  position: relative;
   padding:0 16px 100px;
   will-change:transform,opacity;
   animation:slideIn .45s var(--ease) both;

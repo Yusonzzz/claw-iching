@@ -1,5 +1,10 @@
 <template>
   <div class="page">
+    <!-- 主题切换 -->
+    <button class="theme-home-btn" @click="handleThemeToggle" :aria-label="theme === 'dark' ? '切换白天模式' : '切换深夜模式'">
+      <span class="theme-home-icon" :class="{ swapping: isSwapping }">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
+    </button>
+
     <!-- 当前使用者 -->
     <div v-if="activeProfile" class="user-bar">
       <span class="user-avatar">👤</span>
@@ -90,9 +95,18 @@ import { useProfileStore } from '../stores/profileStore.js'
 import { getFortuneAnalysis, getSingleFortune } from '../utils/fortune.js'
 import HexagramDisplay from '../components/HexagramDisplay.vue'
 import { getLunarInfo } from '../utils/lunar.js'
+import { useTheme } from '../composables/useTheme.js'
 
 const profileStore = useProfileStore()
 const { activeProfile } = profileStore
+
+const { theme, toggleTheme } = useTheme()
+const isSwapping = ref(false)
+function handleThemeToggle() {
+  isSwapping.value = true
+  toggleTheme()
+  setTimeout(() => { isSwapping.value = false }, 400)
+}
 
 const showDailyDetail = ref(false)
 const fortune = ref(null)
@@ -139,4 +153,43 @@ onMounted(() => {
 .user-bazi { font-size: 12px; color: var(--label-tertiary); }
 .user-switch { margin-left: auto; font-size: 13px; color: var(--gold); text-decoration: none; font-weight: 500; }
 .user-setup-link { margin-left: auto; font-size: 13px; color: var(--gold); text-decoration: none; font-weight: 500; }
+
+/* 主题切换 —— 首页顶部 */
+.theme-home-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  border: .5px solid var(--separator-strong);
+  background: var(--bg-card);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 10;
+  transition: all .35s var(--spring);
+}
+.theme-home-btn:active {
+  transform: scale(.88);
+}
+.theme-home-icon {
+  font-size: 17px;
+  line-height: 1;
+  display: block;
+  transition: transform .35s var(--spring);
+}
+.theme-home-icon.swapping {
+  animation: themeSwap .4s var(--spring);
+}
+@keyframes themeSwap {
+  0%   { transform: scale(1) rotate(0deg); }
+  50%  { transform: scale(.5) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+}
 </style>
