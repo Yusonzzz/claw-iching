@@ -1,10 +1,5 @@
 <template>
   <div id="app-root">
-    <!-- 主题切换按钮 -->
-    <button class="theme-toggle" @click="handleToggle" :aria-label="theme === 'dark' ? '切换白天模式' : '切换深夜模式'">
-      <span class="theme-icon" :class="{ swapping: isSwapping }">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
-    </button>
-
     <router-view :key="$route.fullPath" />
     <nav class="tab-bar">
       <router-link to="/" class="tab-item" :class="{ active: $route.path === '/' }" replace>
@@ -23,6 +18,11 @@
         <span class="tab-icon">👤</span>
         <span>我的</span>
       </router-link>
+      <!-- 主题切换 —— 融入 Tab Bar 右侧 -->
+      <button class="tab-item theme-tab" @click="handleToggle" :aria-label="theme === 'dark' ? '切换白天模式' : '切换深夜模式'">
+        <span class="tab-icon theme-icon" :class="{ swapping: isSwapping }">{{ theme === 'dark' ? '☀️' : '🌙' }}</span>
+        <span>主题</span>
+      </button>
     </nav>
   </div>
 </template>
@@ -46,50 +46,25 @@ function handleToggle() {
   min-height: 100vh;
 }
 
-/* —— 主题切换按钮 —— */
-.theme-toggle {
-  position: fixed;
-  top: 48px;
-  right: calc(50% - 195px);
-  z-index: 901;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  border: .5px solid var(--separator-strong);
-  background: var(--bg-card);
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  box-shadow: var(--shadow-card);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  transition: all .35s var(--spring);
+/* —— 主题切换按钮（融入 Tab Bar）—— */
+.theme-tab {
+  flex: 0 0 auto;
+  width: 52px;
+  opacity: .65;
+  transition: opacity .3s;
 }
-.theme-toggle:active {
-  transform: scale(.88);
-  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+.theme-tab:hover {
+  opacity: 1;
 }
-.theme-icon {
-  font-size: 18px;
-  line-height: 1;
-  display: block;
+.theme-tab .theme-icon {
   transition: transform .35s var(--spring);
 }
-.theme-icon.swapping {
+.theme-tab .theme-icon.swapping {
   animation: themeSwap .4s var(--spring);
 }
 @keyframes themeSwap {
   0%   { transform: scale(1) rotate(0deg); }
   50%  { transform: scale(.5) rotate(180deg); }
   100% { transform: scale(1) rotate(360deg); }
-}
-
-/* 响应式：在窄屏时左移 */
-@media (max-width: 430px) {
-  .theme-toggle {
-    right: 10px;
-  }
 }
 </style>
