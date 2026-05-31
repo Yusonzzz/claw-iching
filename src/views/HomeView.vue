@@ -20,7 +20,7 @@
     </div>
 
     <!-- 页头 -->
-    <div class="text-center" style="padding: 16px 0 14px;">
+    <div class="text-center" style="padding: 12px 0 14px;">
       <div style="font-size: 40px;">☯</div>
       <h1 style="font-size: 22px; color: var(--label-primary); margin-top: 4px; font-weight: 700;">易经问卜</h1>
       <div class="text-sm mt-6" style="color: var(--label-secondary);">
@@ -141,14 +141,14 @@ onMounted(() => {
 .top-bar {
   display: flex;
   justify-content: flex-end;
-  padding: 4px 0 6px;
+  padding: 0 0 8px;
 }
 
 /* 主题切换 —— 独立于命主信息栏 */
 .theme-home-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
   border: .5px solid var(--separator-strong);
   background: var(--bg-card);
   backdrop-filter: blur(20px) saturate(160%);
@@ -186,7 +186,7 @@ onMounted(() => {
   background: var(--bg-card);
   backdrop-filter: blur(20px);
   border-radius: var(--radius-sm);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   border: .5px solid var(--separator);
   box-shadow: var(--shadow-card);
 }
